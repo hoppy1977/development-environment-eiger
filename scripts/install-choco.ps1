@@ -8,7 +8,7 @@ Write-host "Choco Started At: $((Get-Date).ToString())"
 $ChocoInstallPath = "$($env:SystemDrive)\ProgramData\Chocolatey\bin"
 if (!(Test-Path $ChocoInstallPath)) {
     write-host "Install Chocolatey . . . "
-    Invoke-Expression ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1')) | out-null
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     write-host "END Installing Chocolatey!" 
 } else {
     write-host "Upgrade Chocolatey . . . "
