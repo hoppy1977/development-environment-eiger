@@ -5,6 +5,10 @@
 #################################################################################################
 Write-host "npm-based installs Started At: $((Get-Date).ToString())"
 
+write-host "Install npm version 10.13.0 . . ."
+nvm install 10.13.0
+write-host "End Install npm version 10.13.0 . . ."
+
 write-host "Install angular-devkit packages . . ."
 npm install @angular-devkit/architect@0.12.1
 npm install @angular-devkit/build-angular@0.12.1
