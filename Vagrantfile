@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.define machine_name
 
   # Name of box to install with
-  config.vm.box = "mwrock/Windows2016"
+  config.vm.box = "gusztavvargadr/windows-server"
   
   # Communicator type
   config.vm.communicator = "winrm"  
@@ -37,6 +37,13 @@ Vagrant.configure("2") do |config|
     vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
     vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
     vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
+  end
+
+  # Hyperv configuration
+  config.vm.provider :hyperv do |h|
+    h.vmname = machine_name
+    h.cpus = 2
+    h.memory = 4096
   end
 
   # Share an additional folder to the guest VM. The first argument is
