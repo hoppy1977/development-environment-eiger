@@ -23,6 +23,10 @@ write-host "Install NVM . . . "
 cinst -y nvm | Out-Null
 write-host "END Install NVM!"
 
+write-host "Install Visual Studio Code . . . "
+cinst -y  visualstudiocode | Out-Null
+write-host "END Install Visual Studio Code!"
+
 write-host "Install Visual Studio 2019 Enterprise . . ."
 cinst -y  visualstudio2019enterprise | Out-Null
 write-host "END Install Visual Studio 2019"
